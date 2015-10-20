@@ -35,13 +35,13 @@ body
                 li
                     a(href='/kontakt') Kontakt
                 li.dropdown
-                  a.dropdown-toggle(href='<?php echo URL; ?>login/login', data-toggle='dropdown')
+                  a.dropdown-toggle(href='/login', data-toggle='dropdown')
                     fa.fa-sign-in Login
                   ul.dropdown-menu(style='padding: 15px;min-width: 250px;')
                     li
                       .row
                         .col-md-12
-                          form#login-nav.form(role='form', method='post', action='<?php echo URL; ?>/login', accept-charset='UTF-8')
+                          form#login-nav.form(role='form', method='post', action='/login', accept-charset='UTF-8')
                             .form-group
                               label.sr-only(for='benutzername') Benutzername
                               |                                                 
