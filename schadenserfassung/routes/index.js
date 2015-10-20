@@ -16,7 +16,6 @@ router.get('/', function(req, res, next) {
   });
 });
 
-<<<<<<< Updated upstream
 router.get('/login', function(req, res, next) {
   res.render('login', { 
   	title: 'Login' 
@@ -27,7 +26,6 @@ router.get('/login', function(req, res, next) {
 
 
 module.exports = router;
-=======
 
 /* MITARBEITERPAGES */
 
@@ -43,4 +41,3 @@ router.post('/login', Login.login);
 
 
 module.exports = router;
->>>>>>> Stashed changes

@@ -3,9 +3,9 @@ var Login = {
 
 
 login: function(req, res, next) {
-   	 	var kennung = req.body.username;
-    	var password = req.body.password;
-    	var userSet;		
+   	 	var kennung = req.body.benutzername;
+    	var password = req.body.passwort;
+    	console.log(kennung + " - " + password);
     	var db = req.db;
 		var collection = db.get('User');
 		var obj = collection.find({"kennung" : kennung},{}, function(e, usr){
