@@ -41,7 +41,7 @@ body
                     li
                       .row
                         .col-md-12
-                          form#login-nav.form(role='form', method='post', action='/login', accept-charset='UTF-8')
+                          form#login-nav.form(role='form', method='post', action='/kunde/login', accept-charset='UTF-8')
                             .form-group
                               label.sr-only(for='benutzername') Benutzername
                               |                                                 
@@ -117,9 +117,3 @@ body
     script(src='js/bootstrap.min.js')
     script(src='js/holder.js')
 block content
-  h1= title
-  p Welcome to #{title}
-  form#formAddUser(name="adduser",method="post",action="/kndlogin")
-        input#inputUserName(type="text", placeholder="username", name="username")
-        input#inputUserPassword(type="password", placeholder="password", name="password")
-        button#btnSubmit(type="submit") submit
