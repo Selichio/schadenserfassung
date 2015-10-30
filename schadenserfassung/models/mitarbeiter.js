@@ -3,7 +3,6 @@ var mongo = require('mongodb')
 , monk = require('monk')
 , db = monk('localhost:27017/schadenserfassung')
  
-
 exports.processLogin = function(user, pass, cb) {
 	var err = null
 	console.log("Model Mitarbeiter: processLogin")
@@ -20,4 +19,3 @@ exports.processLogin = function(user, pass, cb) {
 
 	}
 };
-

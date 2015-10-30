@@ -26,6 +26,5 @@ exports.getSchaden = function(userid, cb) {
 	var collUser = db.get("Schaden")
 	collUser.find({}, function(err, schaden){
 		cb(err, "Hallo")
-
 	})
 };
