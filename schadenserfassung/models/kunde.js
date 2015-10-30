@@ -25,6 +25,11 @@ exports.getSchaden = function(userid, cb) {
 	var err = null
 	var collUser = db.get("Schaden")
 	collUser.find({}, function(err, schaden){
+<<<<<<< HEAD
+		cb(err, "Hallo")
+
+=======
 		
+>>>>>>> master
 	})
 };
