@@ -28,6 +28,6 @@ router.post('/login', function(req, res) {
 
 router.get('/intern', Auth, function(req, res){
 	res.send("Hallo Mitarbeiter " + req.session.user.vorname)
-	res.render('intern')
+	//res.render('intern')
 })
 module.exports = router
