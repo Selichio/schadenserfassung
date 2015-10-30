@@ -42,10 +42,6 @@ res.send("ENDE")
 
 })
 
-router.get('/cc', function(req, res) {
-  res.render('controlcenter')
-})
-
 
 
 module.exports = router

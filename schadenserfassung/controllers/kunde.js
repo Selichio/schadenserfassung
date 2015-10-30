@@ -1,6 +1,6 @@
 var express = require('express')
   , router = express.Router()
-  , User = require('../models/kunde')
+  , Kunde = require('../models/kunde')
   , Auth = require('../middlewares/auth')
 
 // Routen für http://localhost:3000/1users/*
@@ -13,7 +13,7 @@ router.get('/login', function(req, res) {
 // PROCESS LOGIN
 router.post('/login', function(req, res) {
 	console.log("GET.Login")
-	User.processLogin(req.body.benutzername, req.body.passwort,function(err, user) {
+	Kunde.processLogin(req.body.benutzername, req.body.passwort,function(err, user) {
 		if(err)
 		{
 			res.send("FEHLER: " + err)
@@ -30,7 +30,24 @@ router.post('/login', function(req, res) {
 
 // RENDER INTERN
 router.get('/intern', Auth, function(req, res){
-	res.send("Hallo Kunde " + req.session.user.vorname)
+
+	// Ermittelt, ob der Kunde bereits einen Schaden gemeldet hat
+	Kunde.getSchaden("lb85783", function(err, schaden){
+		if(schaden)
+		{
+			res.send(schaden)
+		}
+		else
+		{
+			res.send("INDEX SEITE")
+		}
+	})
 })
+
+// RENDER ERFASSUNG
+router.get('/erfassen', Auth, function(req, res){
+	res.render('erfassung')
+})
+
 
 module.exports = router

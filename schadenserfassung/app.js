@@ -2,9 +2,6 @@ var express = require('express')
   , app = express()
   , bodyParser = require('body-parser')
   , expressSession = require('express-session')
-  , mongo = require('mongodb')
-  , monk = require('monk')
-  , db = monk('localhost:27017/schadenserfassung')
   , port = process.env.PORT || 3000
 
 app.set('views', __dirname + '/views')
@@ -21,10 +18,7 @@ app.use(expressSession(
     saveUninitialized: true
   })
 );
-app.use(function(req,res,next){
-  req.db = db
-  next()
-})
+
 app.use(require('./controllers'))
 
 
