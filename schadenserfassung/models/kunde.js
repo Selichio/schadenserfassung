@@ -1,8 +1,11 @@
 // Export some model methods
-
+var mongo = require('mongodb')
+, monk = require('monk')
+, db = monk('localhost:27017/schadenserfassung')
+  
 exports.processLogin = function(user, pass, cb) {
-	var err = null
 	console.log("Model Kunde: processLogin")
+	var err = null
 	var returnuser
 	if( user == "Dennis" && pass == "geheim")
 	{
@@ -15,4 +18,13 @@ exports.processLogin = function(user, pass, cb) {
 		cb(err, null);
 
 	}
+};
+
+exports.getSchaden = function(userid, cb) {
+	console.log("Model Kunde: getSchaden")
+	var err = null
+	var collUser = db.get("Schaden")
+	collUser.find({}, function(err, schaden){
+		
+	})
 };
