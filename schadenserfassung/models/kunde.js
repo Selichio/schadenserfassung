@@ -11,7 +11,7 @@ exports.processLogin = function(user, pass, cb) {
 	}
 	else
 	{
-		err = "HUreNSOHN alles falsch"
+		err = "User Informationen stimmen nicht überein"
 		cb(err, null);
 
 	}

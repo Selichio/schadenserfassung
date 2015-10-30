@@ -54,6 +54,19 @@ body
                             |                                             
                             .form-group
                               button.btn.btn-success.btn-block(type='submit') Anmelden
+                          form#login-nav.form(role='form', method='post', action='/mitarbeiter/login', accept-charset='UTF-8')
+                            .form-group
+                              label.sr-only(for='benutzername') Benutzername
+                              |                                                 
+                              input#benutzername.form-control(type='text', name='benutzername', placeholder='Benutzername', required='')
+                            |                                             
+                            .form-group
+                              label.sr-only(for='passwort') Passwort
+                              |                                                 
+                              input#passwort.form-control(type='password', name='passwort', placeholder='Passwort', required='')
+                            |                                             
+                            .form-group
+                              button.btn.btn-success.btn-block(type='submit') Anmelden
      
     // Carousel
     // ==================================================

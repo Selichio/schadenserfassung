@@ -12,7 +12,7 @@ router.get('/login', function(req, res) {
 
 router.post('/login', function(req, res) {
 	console.log("GET.Login")
-	User.processLogin(req.body.benutzername, req.body.passwort,function(err, user) {
+	Mitarbeiter.processLogin(req.body.benutzername, req.body.passwort,function(err, user) {
 		if(err)
 		{
 			//Login-Seite mit Fehlermeldung
@@ -28,5 +28,6 @@ router.post('/login', function(req, res) {
 
 router.get('/intern', Auth, function(req, res){
 	res.send("Hallo Mitarbeiter " + req.session.user.vorname)
+	res.render('intern')
 })
 module.exports = router

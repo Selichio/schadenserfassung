@@ -2,6 +2,9 @@ var express = require('express')
   , app = express()
   , bodyParser = require('body-parser')
   , expressSession = require('express-session')
+  , mongo = require('mongodb')
+  , monk = require('monk')
+  , db = monk('localhost:27017/schadenserfassung')
   , port = process.env.PORT || 3000
 
 app.set('views', __dirname + '/views')
@@ -11,9 +14,36 @@ app.set('view engine', 'jade')
 app.use(express.static(__dirname + '/public'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
-app.use(expressSession({secret:'sekolifestyle'}));
+app.use(expressSession(
+  {
+    secret:'sekolifestyle',
+    resave: true,
+    saveUninitialized: true
+  })
+);
+app.use(function(req,res,next){
+  req.db = db
+  next()
+})
 app.use(require('./controllers'))
 
+
 app.listen(port, function() {
-  console.log('Listening on port ' + port)
+  console.log()
+console.log()
+console.log()
+console.log()
+console.log("#===========================================#")
+console.log("#===========================================#")
+console.log()
+console.log("     ######  ######   ==   ##  ## ######")
+console.log("     ##      ##            ## ##  ##  ##")    
+console.log("     ######  ######   ==   ###    ##  ##")
+console.log("         ##  ##            ## ##  ##  ##") 
+console.log("     ######  ######   ==   ##  ## ######")
+console.log()
+console.log("#===========================================#")
+console.log("#    SEKO-Server is listen on port: " + port + "    #")
+console.log("#===========================================#")
+
 })
